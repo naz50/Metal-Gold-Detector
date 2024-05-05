@@ -40,7 +40,7 @@ void loop() {
       digitalWrite(pin_pulse, LOW);
       delayMicroseconds(3);
     }
-    int val = analogRead(pin_cap); // 13x8=104 microseconds
+    int val = analogRead(pin_cap); 
     minval = min(val, minval);
     maxval = max(val, maxval);
     sum += val;
