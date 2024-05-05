@@ -14,10 +14,10 @@ To construct a basic DIY metal detector with Arduino, you will need the followin
 9- Connecting jumper wire<br />
 10- 9:12v Battery <br />**
 
-
+**- Arduino Uno circuit**
 ![metal detector circuit](https://github.com/naz50/Metal-Gold-Detector/assets/74384259/99b27845-f95c-42a1-83cf-890d3d23f9c6)
 
-
+**- Arduino Nano circuit**
 ![Metal-Detector-using-Arduino-circuit-diagram](https://github.com/naz50/Metal-Gold-Detector/assets/74384259/3f0f2cc9-4092-4145-9594-09d89ab67005)
 
 
