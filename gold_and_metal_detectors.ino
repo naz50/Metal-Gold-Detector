@@ -1,8 +1,7 @@
-const byte npulse = 12; // number of pulses to charge the capacitor before each measurement
-
-const byte pin_pulse = A0; // sends pulses to charge the capacitor (can be a digital pin)
+const byte npulse = 12;
+const byte pin_pulse = A0; // sends pulses to charge the capacitor
 const byte pin_cap  = A1; // measures the capacitor charge
-const byte pin_LED = 12; // LED that turns on when metal is detected
+const byte pin_LED = 12; // LED that turns on when metal is detected or Gold
 const byte pin_buzzer = 13; // active buzzer pin
 
 void setup() {
@@ -12,43 +11,41 @@ void setup() {
   pinMode(pin_LED, OUTPUT);
   digitalWrite(pin_LED, LOW);
   pinMode(pin_buzzer, OUTPUT);
-  digitalWrite(pin_buzzer, LOW); // Make sure buzzer is initially off
+  digitalWrite(pin_buzzer, LOW);
 }
 
-const int nmeas = 256; //measurements to take
-long int sumsum = 0; //running sum of 64 sums
-long int skip = 0; //number of skipped sums
-long int diff = 0;      //difference between sum and avgsum
-long int flash_period = 0; //period (in ms)
-long unsigned int prev_flash = 0; //time stamp of previous flash
+const int nmeas = 256; 
+long int sumsum = 0; 
+long int skip = 0; 
+long int diff = 0;     
+long int flash_period = 0; 
+long unsigned int prev_flash = 0;
 
 void loop() {
 
   int minval = 2000;
   int maxval = 0;
 
-  //perform measurement
+
   long unsigned int sum = 0;
   for (int imeas = 0; imeas < nmeas + 2; imeas++) {
-    //reset the capacitor
     pinMode(pin_cap, OUTPUT);
     digitalWrite(pin_cap, LOW);
     delayMicroseconds(20);
     pinMode(pin_cap, INPUT);
-    //apply pulses
+
     for (int ipulse = 0; ipulse < npulse; ipulse++) {
-      digitalWrite(pin_pulse, HIGH); //takes 3.5 microseconds
+      digitalWrite(pin_pulse, HIGH);
       delayMicroseconds(3);
-      digitalWrite(pin_pulse, LOW); //takes 3.5 microseconds
+      digitalWrite(pin_pulse, LOW);
       delayMicroseconds(3);
     }
     //read the charge on the capacitor
-    int val = analogRead(pin_cap); //takes 13x8=104 microseconds
+    int val = analogRead(pin_cap); // 13x8=104 microseconds
     minval = min(val, minval);
     maxval = max(val, maxval);
     sum += val;
 
-    //determine if LEDs should be on or off
     long unsigned int timestamp = millis();
     byte ledstat = 0;
     if (timestamp < prev_flash +12) {
@@ -78,25 +75,24 @@ void loop() {
 
   }
 
-  //subtract minimum and maximum value to remove spikes
   sum -= minval; sum -= maxval;
 
   //process
-  if (sumsum == 0) sumsum = sum << 6; //set sumsum to expected value
+  if (sumsum == 0) sumsum = sum << 6;
   long int avgsum = (sumsum + 32) >> 6;
   diff = sum - avgsum;
-  if (abs(diff)<avgsum >> 10) {   //adjust for small changes
+  if (abs(diff)<avgsum >> 10) {   
     sumsum = sumsum + sum - avgsum;
     skip = 0;
   } else {
     skip++;
   }
-  if (skip > 64) {  // break off in case of prolonged skipping
+  if (skip > 64) {  
     sumsum = sum << 6;
     skip = 0;
   }
 
-  // one permille change = 2 ticks/s
+
   if (diff == 0) flash_period = 1000000;
   else flash_period = avgsum / (2 * abs(diff));
 }
