@@ -18,10 +18,10 @@ To construct a basic DIY metal detector with Arduino, you will need the followin
 ![metal detector circuit](https://github.com/naz50/Metal-Gold-Detector/assets/74384259/99b27845-f95c-42a1-83cf-890d3d23f9c6)
 
 
-![gold metal detector2](https://github.com/naz50/Metal-Gold-Detector/assets/74384259/293cee13-f5df-47e7-82cb-98f34e1c41bc)
-
-
 ![Metal-Detector-using-Arduino-circuit-diagram](https://github.com/naz50/Metal-Gold-Detector/assets/74384259/3f0f2cc9-4092-4145-9594-09d89ab67005)
+
+
+![gold metal detector2](https://github.com/naz50/Metal-Gold-Detector/assets/74384259/293cee13-f5df-47e7-82cb-98f34e1c41bc)
 
 
 https://github.com/naz50/Metal-Gold-Detector/assets/74384259/47b46f35-74af-4076-80e6-da8b11ffb706
