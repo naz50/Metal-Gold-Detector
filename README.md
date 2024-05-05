@@ -3,7 +3,7 @@
 <br /> A **metal detector** is also a type of **security tool** used in a variety of locations, including shopping centers, movie theaters, airports, and so on, to find potentially dangerous metals. I am currently utilizing Arduino to develop the metal detector after previously creating a very basic one without a microcontroller. <br /> The coil and capacitor I'll be using in this project are what will be used to identify metals. Here, I've built a metal detector project using an Arduino Uno. For everyone who enjoys electronics, this is a pretty intriguing project. <br />This detector quickly begins to beep if it senses the presence of metal nearby.
 # Required Components: 
 To construct a basic DIY metal detector with Arduino, you will need the following parts:<br />
-**1-Arduino (any)<br />
+**1-Arduino (Uno or Nano)<br />
 2-Coil 10-20m <br />
 3-100nF capacitor<br />
 4- Active Buzzer<br />
