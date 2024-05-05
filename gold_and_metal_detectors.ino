@@ -40,7 +40,6 @@ void loop() {
       digitalWrite(pin_pulse, LOW);
       delayMicroseconds(3);
     }
-    //read the charge on the capacitor
     int val = analogRead(pin_cap); // 13x8=104 microseconds
     minval = min(val, minval);
     maxval = max(val, maxval);
@@ -59,7 +58,7 @@ void loop() {
     }
     if (flash_period > 1000)ledstat = 0;
 
-    //switch the LEDs and buzzer to this setting
+
     if (ledstat == 0) {
       digitalWrite(pin_LED, LOW);
       digitalWrite(pin_buzzer, LOW);
@@ -77,7 +76,6 @@ void loop() {
 
   sum -= minval; sum -= maxval;
 
-  //process
   if (sumsum == 0) sumsum = sum << 6;
   long int avgsum = (sumsum + 32) >> 6;
   diff = sum - avgsum;
