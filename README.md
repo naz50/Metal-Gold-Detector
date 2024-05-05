@@ -3,12 +3,12 @@ A metal detector is a type of security tool used in a variety of locations, incl
 # Required Components: 
 To construct a basic DIY metal detector with Arduino, you will need the following parts:<br />
 1-Arduino (any)<br />
-2-Coil 10-20m
-3-100nF capacitor
-4- Active Buzzer
-5- 220-ohm resistor
-6-LED
-7-1N4007 diode
-8-Breadboard or PCB
-9- Connecting jumper wire
-10- 9:12v Battery 
+2-Coil 10-20m <br />
+3-100nF capacitor<br />
+4- Active Buzzer<br />
+5- 220-ohm resistor<br />
+6-LED<br />
+7-1N4007 diode<br />
+8-Breadboard or PCB<br />
+9- Connecting jumper wire<br />
+10- 9:12v Battery <br />
